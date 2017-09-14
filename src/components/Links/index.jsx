@@ -15,43 +15,22 @@ class Links extends React.Component {
       email: author.email
     };
 
-    console.log(author.github)
-
     return (
       <div className="links">
         <ul className="links__list">
           <li className="links__list-item">
-            <a href={links.twitter}>
+            <a href={ 'http://twitter.com/' + links.twitter } target="_blank">
               <i className="icon-twitter" />
             </a>
           </li>
           <li className="links__list-item">
-            <a href={links.github}>
+            <a href={ 'http://github.com/' + links.github } target="_blank">
               <i className="icon-github" />
             </a>
           </li>
           <li className="links__list-item">
-            <a href={links.vk}>
-              <i className="icon-vkontakte" />
-            </a>
-          </li>
-        </ul>
-        <ul className="links__list">
-          <li className="links__list-item">
             <a href={`mailto:${links.email}`}>
               <i className="icon-mail" />
-            </a>
-          </li>
-          <li className="links__list-item">
-            <a href={`telegram:${links.telegram}`}>
-              <i className="icon-paper-plane" />
-            </a>
-          </li>
-        </ul>
-        <ul className="links__list">
-          <li className="links__list-item">
-            <a href={links.rss}>
-              <i className="icon-rss" />
             </a>
           </li>
         </ul>
