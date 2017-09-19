@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     url: 'http://www.willchou.ca',
     title: 'Will Chou',
-    subtitle: 'Developer, Foodie, World Explorer',
+    subtitle: 'Application Developer, Amateur Shawarma Expert',
     copyright: 'Will Chou © All rights reserved.',
     menu: [
       {
@@ -22,7 +22,8 @@ module.exports = {
       name: 'William Chou',
       email: 'w.chou06@gmail.com',
       twitter: 'wichopy',
-      github: 'wichopy'
+      github: 'wichopy',
+      linkedin: 'wchou6'
     }
   },
   plugins: [
