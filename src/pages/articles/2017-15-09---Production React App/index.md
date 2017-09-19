@@ -1,6 +1,6 @@
 ---
 title: Setting Up Multiple Node Apps on Digital Ocean with NGINX and PM2
-date: "2017-09-15T09:33:32.169Z"
+date: "2017-09-18T09:33:32.169Z"
 layout: post
 draft: false
 path: "/posts/setting-up-multiple-node-apps-digital-ocean-nginx-pm2"
