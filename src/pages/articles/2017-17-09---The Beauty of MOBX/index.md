@@ -15,18 +15,18 @@ tags:
 description: "I finally got myself to implement a state management library instead of keeping all my state in App.js. After seeing some really good talks about the simplicity of MobX, I knew I needed to include it in my next React project. Here is my experience with refactoring my vanilla React app with a state management library!"
 ---
 
-React makes it amazingly easy to create a dynamic web app, but you'll quickly realize that managing the state of your app can get ugly really tricky. When people hear of React, its tightly coupled with Redux since that is what Facebook uses. It doesn't necessarily mean its the best choice for every app though.
+React makes it amazingly easy to create a dynamic web app, but you'll quickly realize that managing the state of your app can get ugly really quickly. When people hear of React, its tightly coupled with Redux since that is what Facebook uses. It doesn't necessarily mean its the best choice for every app though.
 
 I've completed several courses on the subject, but I have still not been able to wrap my head around setting up my own project with Redux. Whenever I pick a library, I want to pick one that is easy to implement and gives me some freedom to architect my app the way I want. MobX met both these requirements, and I will discuss how easy and powerful it is.
 
 ## Add Decorators Support To Your React App.
-  MobX uses a experimental feature called decorators in javascript. You don't have to use decorators, there is documentation of how to use MobX without them in the official docs, but the syntax is so much cleaner looking.
+  MobX uses a experimental javascript feature called decorators. You don't have to use decorators, there is documentation of how to use MobX without them in the official docs, but the syntax makes your code look much more tidier.
 
-  The only way to use them is by npm installing a plugin and including it in your babel file.
+  To use decorators, you need to npm install a plugin and include it in your babel file.
 
   `npm install --save-dev babel-plugin-transform-decorators-legacy`
 
-  Then in your .babelrc, or in my case, I had to npm run eject my create react app and modify the webpack.config.dev.js file, add the plugin to your babel configuration.
+  Then in your .babelrc, or in my case, I had to `npm run eject` my create react app and modify the `webpack.config.dev.js` file, add the plugin to your babel configuration.
 
   #### Regular .babelrc file
   ~~~javascript
@@ -40,7 +40,7 @@ I've completed several courses on the subject, but I have still not been able to
     // ...
   ~~~
 
-  #### Create React App webpack.congih:
+  #### Create React App webpack.config:
   ~~~javascript
   // webpack.config.dev.js, from line 164
   // ...
@@ -69,10 +69,19 @@ Now to start creating your stores. I group all my stores in a `Stores` folder in
 
 ![Folder Structure](/screenshot.png)
 
-Group your stores logically based on what they will be used for. For example, if you're making a music player app, you may have a store for tracks and another one for playlists.
+Group your stores logically based on what they will be used for. For example, if you're making a music player app, you may have a store for tracks and another one for playlists. Stores are just javascript ES6 classes and look something like this:
+
+~~~javascript
+  class musicStore {
+    songs: []
+    addMusic(song) {
+      this.songs.push(song)
+    }
+  }
+~~~
 
 ## @observable
-Inside of these stores, import the observable object from mobx ( not mobx-react ) and decorate your store variables with them. Here's an example with a todo list:
+Inside of these stores, import the observable object from mobx and decorate your store variables with them. Here's an example with a todo list:
 
 ~~~javascript
   import { observable } from 'mobx';
@@ -87,12 +96,14 @@ Inside of these stores, import the observable object from mobx ( not mobx-react 
 
 ## Instantiate all your stores in app.js
 
-To use your stores, you must instantiate them somewhere. I chase to do this in my highest component, App.js. You only want one instance of each of these stores to exist so it would make sense to have them all instantiate at the same place to keep things organized.
+To use your stores, you must instantiate them somewhere. I chose to do this in my highest component, App.js. You only want one instance of each of these stores to exist so it would make sense to have them all instantiate at the same place to keep things organized.
 
 ~~~javascript
   class App extends Component {
     const musicStore = new MusicStore();
     const authStore = new AuthStore();
+
+    // ...
   }
 ~~~
 
