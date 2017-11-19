@@ -43,14 +43,14 @@ jobs:
       - run: ls
 
       # Add ssh to known hosts:
-      - run: ssh-keyscan 198.199.81.157 >> ~/.ssh/known_hosts
+      # - run: ssh-keyscan 198.199.81.157 >> ~/.ssh/known_hosts
 
-      - run: echo $DROPLET_SSH_PUBLIC
+      # - run: echo $DROPLET_SSH_PUBLIC
       - run: echo $DROPLET_SSH_PUBLIC >> ~/.ssh/known_hosts
 
       # if master, push to production.
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ];
-              then scp -r blog $DROPLET_USER@$DROPLET_IP:/var/www/;
+              then scp -oStrictHostKeyChecking=no -r blog $DROPLET_USER@$DROPLET_IP:/var/www/;
             fi
