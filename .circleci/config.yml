@@ -43,9 +43,7 @@ jobs:
       - run: ls
 
       # Add ssh to known hosts:
-      - run:
-        name: Fix host authenticity for 198.199.81.157
-        command: ssh-keyscan 198.199.81.157 >> ~/.ssh/known_hosts
+      - run: ssh-keyscan 198.199.81.157 >> ~/.ssh/known_hosts
 
       - run: echo $DROPLET_SSH_PUBLIC
       - run: echo $DROPLET_SSH_PUBLIC >> ~/.ssh/known_hosts
