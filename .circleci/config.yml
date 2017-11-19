@@ -35,4 +35,6 @@ jobs:
         
       # run tests!
       #- run: yarn test
-      - deployment: gatsby build
+      
+      # build production
+      - run: node_modules/.bin/gatsby build
