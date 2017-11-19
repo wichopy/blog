@@ -39,4 +39,6 @@ jobs:
       # build production
       - run: node_modules/.bin/gatsby build
   deployment:
-      - if [ "${CIRCLE_BRANCH}" == "master" ]; then echo 'deploying'; scp public $DROPLET_USER@$DROPLET_IP:/var/www/blog/
+    steps:
+      - check_master:
+        command: if [ "${CIRCLE_BRANCH}" == "master" ]; then echo 'deploying'; scp public $DROPLET_USER@$DROPLET_IP:/var/www/blog/
