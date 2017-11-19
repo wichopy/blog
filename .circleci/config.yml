@@ -43,6 +43,7 @@ jobs:
       - run: ls
 
       # Add ssh to known hosts:
+      - run: echo $DROPLET_SSH_PUBLIC
       - run: echo $DROPLET_SSH_PUBLIC >> ~/.ssh/known_hosts
 
       # if master, push to production.
