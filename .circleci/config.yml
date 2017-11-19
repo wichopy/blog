@@ -38,3 +38,9 @@ jobs:
       
       # build production
       - run: node_modules/.bin/gatsby build
+  deployment:
+      master:
+      branch: master
+      commands:
+        - echo 'deploying'
+        - scp public $DROPLET_USER@$DROPLET_IP:/var/www/blog/
