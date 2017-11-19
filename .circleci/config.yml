@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build-job:
+  build:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
@@ -38,7 +38,7 @@ jobs:
       
       # build production
       - run: node_modules/.bin/gatsby build
-  deployment-job: 
+  deployment: 
     working_directory: ~/blog
     steps:
       run:
@@ -47,12 +47,12 @@ jobs:
 
 workflows:
   version: 2
-  build-test-deploy:
+  build-deploy:
     jobs:
-      - build-job
-      - deployment-job:
+      - build
+      - deployment:
         requires:
-          - build-job
+          - build
         filters:
           branches:
             only: master
