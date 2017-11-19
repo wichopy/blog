@@ -42,5 +42,5 @@ jobs:
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "staging" ];
-              then scp public $DROPLET_USER@$DROPLET_IP:/var/www/blog/
+              then scp public $DROPLET_USER@$DROPLET_IP:/var/www/blog/;
             fi
