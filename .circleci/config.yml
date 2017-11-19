@@ -42,6 +42,9 @@ jobs:
       # show the built folder:
       - run: ls
 
+      # Add ssh to known hosts:
+      - run: echo '72:a7:92:ec:ab:fd:f1:42:68:66:06:e5:2f:9b:c2:c8' >> ~/.ssh/known_hosts
+
       # if master, push to production.
       - deploy:
           command: |
