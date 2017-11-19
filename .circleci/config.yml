@@ -39,8 +39,12 @@ jobs:
       # build production
       - run: node_modules/.bin/gatsby build
 
+      # show the built folder:
+      - run: ls
+
+      # if master, push to production.
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "staging" ];
-              then scp public $DROPLET_USER@$DROPLET_IP:/var/www/blog/;
+              then scp -r public $DROPLET_USER@$DROPLET_IP:/var/www/blog/;
             fi
