@@ -37,7 +37,7 @@ jobs:
       #- run: yarn test
       
       # build production
-      - run: node_modules/.bin/gatsby build
+      - run: node_modules/.bin/gatsby build; mv public blog
 
       # show the built folder:
       - run: ls
@@ -45,6 +45,6 @@ jobs:
       # if master, push to production.
       - deploy:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "staging" ];
-              then scp -r public $DROPLET_USER@$DROPLET_IP:/var/www/blog/;
+            if [ "${CIRCLE_BRANCH}" == "master" ];
+              then scp -r blog $DROPLET_USER@$DROPLET_IP:/var/www/;
             fi
