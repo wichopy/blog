@@ -38,6 +38,7 @@ class Sidebar extends React.Component {
           </h2>
         }
         <p className="sidebar__author-subtitle">{subtitle}</p>
+        <button onClick={this.onClick}/>Vibrator</button>
       </div>
     );
     /* eslint-enable jsx-a11y/img-redundant-alt*/
@@ -48,7 +49,6 @@ class Sidebar extends React.Component {
           <div className="sidebar__author">
             {authorBlock}
           </div>
-          <button onClick={this.onClick}/>Vibrator</button>
           <div>
             <Menu data={menu} />
             <Links data={author} />
