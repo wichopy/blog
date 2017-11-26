@@ -48,6 +48,7 @@ class Sidebar extends React.Component {
           <div className="sidebar__author">
             {authorBlock}
           </div>
+          <button onClick={this.onClick}/>Vibrator</button>
           <div>
             <Menu data={menu} />
             <Links data={author} />
