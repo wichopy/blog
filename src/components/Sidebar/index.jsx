@@ -8,6 +8,10 @@ import profilePic from '../../pages/photo.png';
 import './style.scss';
 
 class Sidebar extends React.Component {
+  onClick = () => {
+    navigator.vibrate([500, 300, 100]);
+  }
+ 
   render() {
     const { location } = this.props;
     const { author, subtitle, copyright, menu } = this.props.data.site.siteMetadata;
@@ -16,20 +20,21 @@ class Sidebar extends React.Component {
     /* eslint-disable jsx-a11y/img-redundant-alt*/
     const authorBlock = (
       <div>
-        <Link to="/">
+        <Link to="/" onClick={this.onClick}>
           <img
             src={profilePic}
+            onClick={this.onClick}
             className="sidebar__author-photo"
             width="75" height="75"
             alt={author.name}
           />
         </Link>
         { isHomePage ? (
-          <h1 className="sidebar__author-title">
+          <h1 className="sidebar__author-title" onClick={this.onClick}>
             <Link className="sidebar__author-title-link" to="/">{author.name}</Link>
           </h1>
         ) :
-          <h2 className="sidebar__author-title">
+          <h2 className="sidebar__author-title" onClick={this.onClick}>
             <Link className="sidebar__author-title-link" to="/">{author.name}</Link>
           </h2>
         }

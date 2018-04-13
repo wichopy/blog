@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     url: 'http://www.willchou.ca',
     title: 'Will Chou',
-    subtitle: 'Application Developer, Amateur Shawarma Expert',
+    subtitle: 'I like shipping code.',
     copyright: 'Will Chou © All rights reserved.',
     menu: [
       {
