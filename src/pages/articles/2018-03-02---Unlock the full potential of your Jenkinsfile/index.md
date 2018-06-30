@@ -1,19 +1,21 @@
 ---
-title: Obsessed with CI
-date: "2017-11-19T08:40:32.169Z"
+title: Unlock the full potential of your Jenkins build
+date: "2018-02-03T23:40:32.169Z"
 layout: post
 draft: false
-path: "/posts/Obsessed-with-CI"
+path: "/posts/unlock-jenkins-potential"
 category: "Devops"
 tags:
-  - "CIRCLECI"
-  - "Digital"
-  - "Ocean"
+  - "Jenkins"
+  - "Automated testing"
+  - "Automated deployment"
   - "Ubuntu"
-  - "Deploying"
-  - "Automation"
-description: "After setting up Jenkins pipeline at work I wanted to give another platform a try to compare..."
+  - "MacOS"
+description: "Migrating build servers from MacOS to Ubuntu, and learning some hidden features for Jenkins."
 ---
+
+cp is different on MAcOS vs Ubuntu
+
 
 Setting up an automated deployment pipeline at work was both frustrating and extremely rewarding. Watching the console logs was like a sporting event, waiting to see what happens next. Will the build fail? Did my tests work? Why do I keep getting this error?!
 
